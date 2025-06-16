@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TugmaTik: Rhyming Showdown</title>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TugmaTik: Rhyming Showdown</title>
+  <link href="https://fonts.googleapis.com/css2?family=Overlock:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin:0; padding:0 }
+    body {
+      font-family: 'Overlock', cursive;
+      background: url('/static/main-bg.png') center/cover no-repeat;
+      min-height:100vh; overflow:hidden;
+      position:relative; color:#333;
+    }
+
+    /* 1) SPLASH SCREEN */
+    #splash {
+      position:fixed; inset:0;
+    background: transparent;
+      display:flex; flex-direction:column;
+      justify-content:flex-end; align-items:center;
+      padding-bottom:80px; z-index:1000;
+    }
+
+
+
+    #musicToggle {
+      position:absolute; top:20px; right:20px;
+      width:48px; height:48px;
+      background:rgba(255,255,255,0.9);
+      border-radius:50%; font-size:1.4rem;
+      display:flex; align-items:center; justify-content:center;
+      z-index:1001;
+    }
+
+    #playBtn {
+  position: absolute;
+  top: 620px; 
+  bottom: 50px;
+  right: 28%;
+  transform: translateX(50%);
+  border: none;
+  background: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+#playBtn img {
+  width: 240px;
+  height: auto;
+  display: block;
+}
+
+    /* 2) DIFFICULTY OVERLAY */
+    #difficultyOverlay {
+      position:fixed; inset:0;
+      background: url('/static/howto-bg.png') center/cover no-repeat; /* ✅ new background image */
+      display:none; align-items:center; justify-content:center;
+      z-index:800;
+      padding: auto;
+    }
+
+.difficulty-card h2 {
+  margin-top: 150px;
+  font-size: 2rem;
+  color: #7a3630;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 0 #290909;
+}
+
+.difficulty-card select {
+  font-size: 1.2rem;
+  padding: 14px 20px;
+  border: 2px solid #ff9f1c;
+  border-radius: 12px;
+  background: #fff8e1;
+  color: #333;
+  margin-bottom: 20px;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.description {
+  font-size: 1.4rem;
+  color: #3b1f1f;
+  margin-bottom: 20px;
+  line-height: 1;
+  text-align: center;
+}
+
+.difficulty-card .start-btn {
+  border: none;
+  padding: 14px 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+    .card h1 { color:#bf360c; margin-bottom:1rem }
+    .card p { color:#444; margin-bottom:1.5rem; line-height:1.4 }
+    .card select, .card button {
+      width:100%; padding:.75rem; margin-bottom:1rem;
+      border:2px solid #bf360c; border-radius:6px;
+      font-family:'Overlock', cursive; font-size:1rem;
+    }
+.difficulty-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #3b1f1f;
+  font-family: 'Overlock', cursive;
+  padding: 60px 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  z-index: 999;
+}
+
+.difficulty-content h1 {
+  font-size: 7rem;
+  margin-bottom: 20px;
+  color: #ff6f61;
+  text-shadow: 2px 2px 0 #fff;
+}
+
+.difficulty-content .tagline {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  color: #333;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 20px 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.difficulty-options select {
+  font-size: 1.4rem;
+  padding: 14px 22px;
+  border: 3px dashed #ff9f1c;
+  border-radius: 18px;
+  background: #fffdf0;
+  color: #3b1f1f;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+}
+
+.big-start {
+  font-size: 1.6rem;
+  background: linear-gradient(to right, #ff9f1c, #ff6f61);
+  border: none;
+  color: white;
+  padding: 18px 36px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.big-start:hover {
+  background: linear-gradient(to right, #ffc107, #f44336);
+  transform: scale(1.05);
+}
+
+    /* 3) BACKGROUND EFFECTS (bubbles + confetti + win gif) */
+    .float-bg {
+      position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:1;
+    }
+    .float-bg span {
+      position:absolute; background:rgba(255,255,255,0.1);
+      border-radius:50%; animation:float 8s infinite ease-in-out;
+    }
+    @keyframes float {
+      from {transform:translateY(100vh) scale(.5)} 
+      to   {transform:translateY(-10vh) scale(1.2)}
+    }
+    #confetti { position:fixed; inset:0; pointer-events:none; z-index:2 }
+    #winGif {
+      display:none; position:absolute; top:20px; right:20px;
+      width:150px; height:150px; z-index:3;
+    }
+#howtoOverlay {
+  position: fixed;
+  inset: 0;
+  background: url('/static/howto-bg.png') center/cover no-repeat;
+  z-index: 950;
+  display: none; /* toggle this with JS */
+  padding: 40px;
+  color: #fff; /* optional: for better contrast on text */
+  font-family: 'Overlock', cursive;
+}
+
+.howtoOverlay li {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+    /* 4) VS HEADER */
+
+    .vs-header {
+  position: absolute;
+  top: 100px;
+  right: 250px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 4;
+}
+
+    .vs-header .player {
+      width:140px; height:140px; background:#000;
+      border:4px solid #f1c40f; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      position:relative;
+    }
+    .vs-header .label {
+      position:absolute; bottom:-20px;
+      background:#f1c40f; color:#000; padding:4px 10px;
+      border-radius:12px; font-size:14px; font-weight:bold;
+    }
+    .vs-header .vs { font-size:60px; margin:0 30px;
+      color:#ff5252; text-shadow:0 0 10px #ff5252;
+    }
+
+    /* 5) GAME SCREEN */
+
+#game {
+  display: none;
+  position: relative;
+  z-index: 5;
+  min-height: 100vh;
+  padding: 20px;
+  background: url('/static/game-bg.png') center/cover no-repeat;
+}
+    /* GAME SCREEN - UPGRADED STYLING */
+#gameScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  font-family: 'Overlock', cursive;
+  animation: fadeInGame 0.6s ease-in-out;
+  background: url('/static/fun-bg.png') center/cover no-repeat;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+}
+
+@keyframes fadeInGame {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.image-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: inline-block;
+}
+
+.image-btn img {
+  width: 160px; /* adjust as needed */
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+.image-btn:hover img {
+  transform: scale(1.05);
+}
+.sentence-card p:first-child {
+  font-size: 1.6rem; /* Medium for Pangungusap */
+  margin-bottom: 10px;
+}
+
+.sentence-card p:last-child {
+  font-size: 1.2rem; /* Smallest for Target */
+  color: #5c4033;
+}
+
+.sentence-card {
+  background: linear-gradient(145deg, #fff7e6, #fff);
+  border-radius: 20px;
+  padding: 28px 36px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), inset 0 0 0 3px #ffd166;
+  margin-bottom: 30px;
+  text-align: center;
+  width: 100%;
+  max-width: 650px;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  font-weight: 700;
+  color: #3b1f1f;
+  transition: all 0.3s ease;
+}
+
+.sentence-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.25), inset 0 0 0 3px #ff9f1c;
+}
+.input-mode {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+#userInput {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px; /* adjust as needed */
+  font-size: 1.2rem;
+  padding: 16px 35px;
+  border-radius: 14px;
+  border: 2px solid #ddd;
+  background: #fff;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#userInput::placeholder {
+  font-size: 1.1rem;
+  color: #666;
+  opacity: 1;
+}
+
+#userInput:focus {
+  border-color: #ff9f1c;
+  box-shadow: 0 0 0 4px rgba(255, 159, 28, 0.2);
+  outline: none;
+}
+
+.round-info {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px #ffe;
+  animation: pulseRound 1.2s infinite ease-in-out;
+  text-align:center;
+  margin-top:30px;
+}
+
+.round-info p {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #3b1f1f;
+  text-shadow: 1px 1px 0 #fff;
+  margin-bottom: 20px;
+}
+
+
+@keyframes pulseRound {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.score-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem;
+}
+
+.score {
+  font-size: 2rem;
+  margin: 25px;
+  color: #222;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 12px 30px;
+  border-radius: 14px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+
+.results p {
+  font-size: 1.4rem;
+  margin: 14px 0;
+  padding: 12px 20px;
+  background: linear-gradient(to right, #fff9c4, #ffe082);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  color: #3b1f1f;
+  font-weight: bold;
+  text-align: center;
+  animation: bounceIn 0.4s ease-in-out;
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  60% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+    select, input {
+       padding:9px; margin-top:10px;
+      border-radius:8px; border:2px solid #bf360c;
+      font-family:'Overlock', cursive; font-size:16px;
+    }
+
+
+/* Bubbles - apply globally */
+.float-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.float-bg span {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: float 10s infinite ease-in-out;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh) scale(0.6); opacity: 0.5; }
+  to { transform: translateY(-10vh) scale(1.2); opacity: 1; }
+}
+    /* 6) FINAL SCREEN */ 
+
+#final {
+  display: none;
+  background: url('/static/score-bg.png') center/cover no-repeat;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Overlock', cursive;
+  position: relative;
+  z-index: 5;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  color: #3b1f1f;
+  overflow: hidden;
+}
+.final-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  width: 100%;
+  padding: 40px 20px;
+
+}
+
+.final-player {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #3b1f1f;
+  margin: 10px 0;
+}
+
+.final-winner {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-top: 30px;
+  color: #d84315;
+  text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.7);
+  transition: transform 0.4s ease;
+}
+
+.final-winner.win {
+  color: #2ecc71;
+}
+
+.final-winner.lose {
+  color: #e74c3c;
+}
+
+.final-winner.tie {
+  color: #f39c12;
+}
+
+/* Enlarged modal-style result image overlay */
+#popupOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#popupImage {
+  max-width: 400px;
+  width: 90%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+  background: white;
+  transition: transform 0.3s ease;
+}
+
+.final-winner.win { color: #2ecc71; }
+.final-winner.lose { color: #e74c3c; }
+.final-winner.tie  { color: #f39c12; }
+
+#final button {
+  margin-top: 40px;
+  font-size: 1.4rem;
+  padding: 16px 30px;
+  border: none;
+  background: linear-gradient(to right, #ff6f61, #ff9f1c);
+  color: white;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+#final button:hover {
+  transform: scale(1.05);
+}
+
+.round-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: #fff8e1;
+  border: 4px solid #ff9f1c;
+  padding: 20px 40px;
+  border-radius: 20px;
+  font-size: 5rem;
+  color: #3b1f1f;
+  font-weight: bold;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  display: none;
+  z-index: 2000;
+  animation: popupBounce 2s ease;
+  text-align: center;
+}
+
+@keyframes popupBounce {
+  0% { transform: translate(-50%, -50%) scale(0.6); opacity: 0; }
+  60% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+    /* Extra: Final emoji styling */
+    #finalEmoji {
+      font-size: 6rem;
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: none;
+      z-index: 99;
+    }
+    #resultPic {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+#resultPic.show {
+  opacity: 1;
+}
+
+  </style>
+</head>
+<body>
+    <!-- 🔲 Popup Overlay for Result Image -->
+    <div id="popupOverlay" onclick="closePopup()">
+      <img id="popupImage" src="" alt="Result Img" />
+    </div>
+  
+    <!-- Round Winner Popup -->
+<div id="roundPopup" class="round-popup">
+  <span id="roundPopupText">🏆 Panalo sa Round: YOU</span>
+</div>
+
+
+    <!-- 🔲 Floating Background Effects -->
+    <div class="float-bg" id="floatBg"></div>
+  
+    <!-- 🔈 Music Toggle Button -->
+    <button id="musicToggle" onclick="toggleMusic()" style="background: none; border: none; padding: 0; position: absolute; top: 45px; right: 40px; z-index: 1000;">
+      <img id="musicIcon" src="/static/soundOn-btn.png" alt="Toggle Music" style="width: 100px; height: auto;" />
+    </button>
+  
+    <!-- 🔊 Background Music and AI/USER Win BGM -->
+    <audio id="bgMusic" loop>
+      <source src="/static/bg-music.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="aiWinBgm" src="/static/ai-win.mp3" preload="auto"></audio>
+    <audio id="userWinBgm" src="/static/user-win.mp3" preload="auto"></audio>
+  
+    <!-- 🟢 Splash Screen (Start Page) -->
+    <div id="splash">
+      <button id="playBtn">
+        <img src="/static/start-btn.png" alt="Start!" />
+      </button>
+    </div>
+  
+  
+    <!-- 🎮 Difficulty Selection Overlay -->
+    <div id="difficultyOverlay">
+      <div class="difficulty-card">
+        <h2>🎯 Piliin ang Antas ng Laro</h2>
+        <p class="description">
+          Kumpletuhin ang pangungusap gamit ang salitang may tugma.<br>
+          +10 puntos bawat tama. <br>
+          Ang may pinakamataas na iskor!
+        </p>
+        <select id="difficulty">
+          <option>Madali 🐣</option>
+          <option selected>Katamtaman 🐥</option>
+          <option>Mahirap 🦅</option>
+        </select>
+        <!-- 🎮 Start Game Button -->
+        <button id="startBtn" class="image-btn" onclick="startGame()">
+          <img src="static/play-btn.png" alt="Laro na!" />
+        </button>
+        <!-- 🔙 Back to Splash Button -->
+        <button onclick="goBackToSplash()" class="image-btn" style="position: absolute; top: 20px; left: 20px; background: none; border: none; padding: 0; cursor: pointer;">
+          <img src="/static/back-btn.png" alt="Balik" style="width: 100px; height: auto;" />
+        </button>
+      </div>
+    </div>
+  
+    <!-- 🎉 Confetti Canvas and Win GIF -->
+     
+    <canvas id="confetti"></canvas>
+    <img id="winGif" src="https://media.giphy.com/media/111ebonMs90YLu/giphy.gif" alt="You Win!">
+  
+    <!-- 🆚 VS Header (User vs AI) -->
+    <div class="vs-header">
+      <div class="player"><div class="label">YOU</div></div>
+      <div class="vs">VS</div>
+      <div class="player"><div class="label">AI</div></div>
+    </div>
+
+
+    <!-- 🕹️ Game Section -->
+    <div id="game">
+      <button class="back-btn image-btn" onclick="restartGame()" style="background: none; border: none; padding: 0; position: absolute; top: 20px; left: 20px; z-index: 6;">
+        <img src="/static/back-btn.png" alt="Balik" style="width: 100px; height: auto;" />
+      </button>
+      <div class="score-wrapper">
+      <div class="score">
+        <strong>YOU:</strong> <span id="scoreUser">0</span> &nbsp;|&nbsp;
+        <strong>AI:</strong> <span id="scoreAI">0</span>
+  </div>
+</div>
+
+      <div id="gameScreen">
+        <div class="round-info">
+          <p>🌀 Round <span id="roundNum">1</span> of 5 <style> </style></p>
+          <div class="sentence-card">
+            <p><strong>Pangungusap:</strong> <span id="promptText"></span> ____</p>
+            <p><strong>Target:</strong> ends with “<span id="rhymeSuffix"></span>”</p>
+          </div>
+        </div>
+        <div class="input-mode">
+          <input id="userInput" placeholder="Ilagay ang tugmang salita…" />
+        </div>
+        <button id="submitBtn" class="image-btn" onclick="submitWord()">
+    <img src="/static/submit-btn.png" alt="Isumite" style="width: 180px; height: auto;" />
+  </button>
+  
+        <div class="results" id="results">
+        </div>
+  </div>
+</div>
+  
+    <!-- 🏁 Final Result Screen -->
+    <div id="final">
+      <div class="final-center">
+        <p class="score-you">You: <span id="finalYou">0</span></p>
+        <p class="score-ai">AI: <span id="finalAI">0</span></p>
+        <p id="finalWinner" class="score-result">Natalo Ka!</p>
+  
+        <!-- 🖼️ Result Image -->
+        <img id="resultPic" src="" alt="Result" />
+  
+        <!-- 🔁 Play Again Button -->
+        <button class="score-btn image-btn" onclick="restartGame()" style="background: none; border: none; padding: 0; margin-top: 30px; cursor: pointer;">
+          <img src="/static/again-btn.png" alt="Maglaro Muli" style="width: 220px; height: auto; display: block;" />
+        </button>
+      </div>
+    </div>
+  
+    <!-- 😊 Final Emoji (if needed) -->
+    <div id="finalEmoji"></div>
+  
+  </body>
+  
+  <script>
+    function goBackToSplash() {
+  document.getElementById('difficultyOverlay').style.display = 'none';
+  document.getElementById('splash').style.display = 'flex';
+}
+
+    const fb = document.getElementById('floatBg');
+    for(let i=0; i<30; i++){
+      let dot = document.createElement('span'), s = Math.random()*40+10;
+      dot.style.width = dot.style.height = s+'px';
+      dot.style.left = (Math.random()*100)+'%';
+      dot.style.animationDelay = (Math.random()*5)+'s';
+      fb.append(dot);
+    }
+
+    const splash = document.getElementById('splash'),
+          difficultyOverlay = document.getElementById('difficultyOverlay'),
+          btnPlay = document.getElementById('playBtn'),
+          bgMusic = document.getElementById('bgMusic'),
+          btnMusic = document.getElementById('musicToggle'),
+          difficultySelect = document.getElementById('difficulty');
+
+function toggleMusic() {
+  const bgMusic = document.getElementById('bgMusic');
+  const icon = document.getElementById('musicIcon');
+
+  if (bgMusic.paused) {
+    bgMusic.play();
+    icon.src = '/static/soundOn-btn.png';
+  } else {
+    bgMusic.pause();
+    icon.src = '/static/soundOff-btn.png';
+  }
+}
+
+    btnPlay.addEventListener('click', ()=>{
+      splash.style.display = 'none';
+      difficultyOverlay.style.display = 'flex';
+    });
+
+    let round=1, maxRounds=5, scoreUser=0, scoreAI=0, gameData={};
+    const input = document.getElementById('userInput');
+
+    input.addEventListener('keydown', e=>{
+      if(e.key==='Enter') submitWord();
+    });
+
+    function startGame(){
+      difficultyOverlay.style.display='none';
+      document.getElementById('game').style.display='block';
+      round=1; scoreUser=0; scoreAI=0;
+      document.getElementById('scoreUser').innerText='0';
+      document.getElementById('scoreAI').innerText='0';
+      nextRound();
+    }
+
+    function nextRound(){
+      document.getElementById('roundNum').innerText=round;
+      document.getElementById('results').innerHTML='';
+      fetch('/start',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ difficulty: difficultySelect.value })
+      })
+      .then(r=>r.json())
+      .then(data=>{
+        gameData = data;
+        document.getElementById('promptText').innerText = data.prompt;
+        document.getElementById('rhymeSuffix').innerText = data.suffix;
+        input.value='';
+      });
+    }
+
+  function submitWord(){
+  const userWord = input.value.trim();
+  if (!userWord) return alert('Pakilagay ang iyong sagot.');
+
+  fetch('/play', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      context: gameData.context,
+      suffix: gameData.suffix,
+      user_word: userWord,
+      difficulty: difficultySelect.value
+    })
+  })
+  .then(r => r.json())
+  .then(res => {
+    const us = res.user_rhyme ? 10 : 0;
+    const ai = res.ai_rhyme ? 10 : 0;
+
+    scoreUser += us;
+    scoreAI += ai;
+    updateScore('scoreUser', scoreUser);
+    updateScore('scoreAI', scoreAI);
+
+    // Win animation for player
+    if (us > ai) {
+      document.getElementById('winGif').style.display = 'block';
+      confetti({ particleCount: 100, spread: 70 });
+      setTimeout(() => {
+        document.getElementById('winGif').style.display = 'none';
+      }, 2000);
+    }
+
+    // Show round result
+    document.getElementById('results').innerHTML = `
+      <p><strong>You:</strong> ${userWord} ${res.user_rhyme ? '✔' : '✘'} (+${us})</p>
+      <p><strong>AI:</strong> ${res.ai_word} ${res.ai_rhyme ? '✔' : '✘'} (+${ai})</p>
+    `;
+
+    // 🔔 Show round popup (no scoreboard used)
+    const winner = us > ai ? 'YOU' : ai > us ? 'AI' : 'TIE';
+    document.getElementById('roundPopupText').innerText = `🏆 Panalo sa Round: ${winner}`;
+    showRoundPopup();
+
+    // Go to next round or end
+    setTimeout(() => {
+      if (round < maxRounds) {
+        round++;
+        nextRound();
+      } else {
+        endGame();
+      }
+    }, 2000);
+  });
+}
+
+function showRoundPopup() {
+  const popup = document.getElementById('roundPopup');
+  popup.style.display = 'block';
+  setTimeout(() => {
+    popup.style.display = 'none';
+  }, 1500);
+}
+
+
+    function updateScore(id,val){
+      const el = document.getElementById(id);
+      el.innerText=val; el.classList.add('pulse');
+      setTimeout(()=>el.classList.remove('pulse'),500);
+    }
+
+    function endGame() {
+  document.getElementById('game').style.display = 'none';
+  document.getElementById('final').style.display = 'flex';
+
+  // 🔇 Stop main background music
+  const bgMusic = document.getElementById('bgMusic');
+  bgMusic.pause();
+  bgMusic.currentTime = 0;
+
+  document.getElementById('finalYou').innerText = scoreUser;
+  document.getElementById('finalAI').innerText = scoreAI;
+
+  const fw = document.getElementById('finalWinner');
+  const popupOverlay = document.getElementById('popupOverlay');
+  const popupImage = document.getElementById('popupImage');
+
+  if (scoreUser > scoreAI) {
+    fw.className = "score-result win";
+    fw.innerText = "Panalo Ka!";
+    popupImage.src = "/static/win-aldenpose.png";
+    document.getElementById('userWinBgm').play();
+
+    // OPTIONAL: play your user win BGM if you have one
+    // document.getElementById('userWinBgm').play();
+
+  } else if (scoreUser < scoreAI) {
+    fw.className = "score-result lose";
+    fw.innerText = "Natalo Ka!";
+    popupImage.src = "/static/lose-krisbernal.png";
+    document.getElementById('aiWinBgm').play(); // 🔊 Play AI win BGM
+
+  } else {
+    fw.className = "score-result tie";
+    fw.innerText = "Tabla!";
+    const tieGifs = [
+      "https://media.giphy.com/media/l0Exk8EUzSLsrErEQ/giphy.gif",
+      "https://media.giphy.com/media/1yld7nW3o9b4I/giphy.gif"
+    ];
+    popupImage.src = tieGifs[Math.floor(Math.random() * tieGifs.length)];
+  }
+
+  popupOverlay.style.display = 'flex';
+  confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
+}
+
+
+
+    function restartGame() {
+      document.getElementById('final').style.display = 'none';
+      document.getElementById('game').style.display = 'none';
+      document.getElementById('difficultyOverlay').style.display = 'none';
+      splash.style.display = 'flex';
+      round = 1;
+      scoreUser = 0;
+      scoreAI = 0;
+    }
+    function closePopup() {
+  document.getElementById('popupOverlay').style.display = 'none';
+}
+
+  </script>
+</body>
+</html>
+index.html
+24 KB
