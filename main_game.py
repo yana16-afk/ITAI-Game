@@ -45,15 +45,15 @@ for i in range(1, rounds + 1):
         if player_word in valid_words and player_word.isalpha():
             break
         else:
-            print("❌ Invalid word. Try again.")
+            print("Invalid word. Try again.")
             attempts += 1
 
     if player_word not in valid_words:
-        print("⚠️ Not in dictionary. Round skipped.")
+        print("Not in dictionary. Round skipped.")
         continue
 
     rhyme_ok = rhyme_match(player_word, suffix)
-    print("✅ Rhyme match!" if rhyme_ok else "❌ No rhyme.")
+    print("✅ Rhyme match!" if rhyme_ok else "No rhyme.")
     if rhyme_ok:
         score_user += 10
         print(f"+10 points! Total: {score_user}")
@@ -66,12 +66,12 @@ for i in range(1, rounds + 1):
 
     print(f"Score — You: {score_user}, AI: {score_ai}")
 
-print("\n🎮 GAME OVER 🎮")
+print("\nGAME OVER")
 print(f"Final Score — You: {score_user} pts, AI: {score_ai} pts")
 if score_user > score_ai:
-    print("🏆 You win!")
+    print("You win!")
 elif score_user < score_ai:
-    print("🤖 AI wins!")
+    print("AI wins!")
 else:
 
-    print("⚖️ It's a tie!")
+    print("It's a tie!")

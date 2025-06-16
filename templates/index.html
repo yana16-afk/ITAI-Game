@@ -20,7 +20,6 @@
       position:relative; color:#333;
     }
 
-    /* 1) SPLASH SCREEN */
     #splash {
       position:fixed; inset:0;
     background: transparent;
@@ -28,8 +27,6 @@
       justify-content:flex-end; align-items:center;
       padding-bottom:80px; z-index:1000;
     }
-
-
 
     #musicToggle {
       position:absolute; top:20px; right:20px;
@@ -58,7 +55,6 @@
   display: block;
 }
 
-    /* 2) DIFFICULTY OVERLAY */
     #difficultyOverlay {
       position:fixed; inset:0;
       background: url('/static/howto-bg.png') center/cover no-repeat; /* ✅ new background image */
@@ -174,7 +170,6 @@
   transform: scale(1.05);
 }
 
-    /* 3) BACKGROUND EFFECTS (bubbles + confetti + win gif) */
     .float-bg {
       position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:1;
     }
@@ -196,9 +191,9 @@
   inset: 0;
   background: url('/static/howto-bg.png') center/cover no-repeat;
   z-index: 950;
-  display: none; /* toggle this with JS */
+  display: none; 
   padding: 40px;
-  color: #fff; /* optional: for better contrast on text */
+  color: #fff; 
   font-family: 'Overlock', cursive;
 }
 
@@ -207,8 +202,6 @@
   margin-bottom: 15px;
   line-height: 1.6;
 }
-
-    /* 4) VS HEADER */
 
     .vs-header {
   position: absolute;
@@ -235,8 +228,6 @@
       color:#ff5252; text-shadow:0 0 10px #ff5252;
     }
 
-    /* 5) GAME SCREEN */
-
 #game {
   display: none;
   position: relative;
@@ -245,7 +236,6 @@
   padding: 20px;
   background: url('/static/game-bg.png') center/cover no-repeat;
 }
-    /* GAME SCREEN - UPGRADED STYLING */
 #gameScreen {
   display: flex;
   flex-direction: column;
@@ -274,7 +264,7 @@
 }
 
 .image-btn img {
-  width: 160px; /* adjust as needed */
+  width: 160px; 
   height: auto;
   transition: transform 0.2s ease;
 }
@@ -283,12 +273,12 @@
   transform: scale(1.05);
 }
 .sentence-card p:first-child {
-  font-size: 1.6rem; /* Medium for Pangungusap */
+  font-size: 1.6rem;
   margin-bottom: 10px;
 }
 
 .sentence-card p:last-child {
-  font-size: 1.2rem; /* Smallest for Target */
+  font-size: 1.2rem; 
   color: #5c4033;
 }
 
@@ -323,7 +313,7 @@
   display: block;
   margin: 0 auto;
   width: 100%;
-  max-width: 1000px; /* adjust as needed */
+  max-width: 1000px; 
   font-size: 1.2rem;
   padding: 16px 35px;
   border-radius: 14px;
@@ -418,7 +408,6 @@
     }
 
 
-/* Bubbles - apply globally */
 .float-bg {
   position: fixed;
   inset: 0;
@@ -438,7 +427,6 @@
   from { transform: translateY(100vh) scale(0.6); opacity: 0.5; }
   to { transform: translateY(-10vh) scale(1.2); opacity: 1; }
 }
-    /* 6) FINAL SCREEN */ 
 
 #final {
   display: none;
@@ -493,7 +481,6 @@
   color: #f39c12;
 }
 
-/* Enlarged modal-style result image overlay */
 #popupOverlay {
   position: fixed;
   inset: 0;
@@ -561,7 +548,6 @@
   100% { transform: translate(-50%, -50%) scale(1); }
 }
 
-    /* Extra: Final emoji styling */
     #finalEmoji {
       font-size: 6rem;
       position: absolute;
@@ -582,42 +568,33 @@
   </style>
 </head>
 <body>
-    <!-- 🔲 Popup Overlay for Result Image -->
     <div id="popupOverlay" onclick="closePopup()">
       <img id="popupImage" src="" alt="Result Img" />
     </div>
   
-    <!-- Round Winner Popup -->
 <div id="roundPopup" class="round-popup">
   <span id="roundPopupText">🏆 Panalo sa Round: YOU</span>
 </div>
 
-
-    <!-- 🔲 Floating Background Effects -->
     <div class="float-bg" id="floatBg"></div>
   
-    <!-- 🔈 Music Toggle Button -->
     <button id="musicToggle" onclick="toggleMusic()" style="background: none; border: none; padding: 0; position: absolute; top: 45px; right: 40px; z-index: 1000;">
       <img id="musicIcon" src="/static/soundOn-btn.png" alt="Toggle Music" style="width: 100px; height: auto;" />
     </button>
   
-    <!-- 🔊 Background Music and AI/USER Win BGM -->
     <audio id="bgMusic" loop>
       <source src="/static/bg-music.mp3" type="audio/mpeg">
     </audio>
     <audio id="aiWinBgm" src="/static/ai-win.mp3" preload="auto"></audio>
     <audio id="userWinBgm" src="/static/user-win.mp3" preload="auto"></audio>
   
-    <!-- 🟢 Splash Screen (Start Page) -->
     <div id="splash">
       <button id="playBtn">
         <img src="/static/start-btn.png" alt="Start!" />
       </button>
     </div>
   
-  
-    <!-- 🎮 Difficulty Selection Overlay -->
-    <div id="difficultyOverlay">
+      <div id="difficultyOverlay">
       <div class="difficulty-card">
         <h2>🎯 Piliin ang Antas ng Laro</h2>
         <p class="description">
@@ -630,31 +607,25 @@
           <option selected>Katamtaman 🐥</option>
           <option>Mahirap 🦅</option>
         </select>
-        <!-- 🎮 Start Game Button -->
+
         <button id="startBtn" class="image-btn" onclick="startGame()">
           <img src="static/play-btn.png" alt="Laro na!" />
         </button>
-        <!-- 🔙 Back to Splash Button -->
         <button onclick="goBackToSplash()" class="image-btn" style="position: absolute; top: 20px; left: 20px; background: none; border: none; padding: 0; cursor: pointer;">
           <img src="/static/back-btn.png" alt="Balik" style="width: 100px; height: auto;" />
         </button>
       </div>
     </div>
-  
-    <!-- 🎉 Confetti Canvas and Win GIF -->
-     
+       
     <canvas id="confetti"></canvas>
     <img id="winGif" src="https://media.giphy.com/media/111ebonMs90YLu/giphy.gif" alt="You Win!">
   
-    <!-- 🆚 VS Header (User vs AI) -->
     <div class="vs-header">
       <div class="player"><div class="label">YOU</div></div>
       <div class="vs">VS</div>
       <div class="player"><div class="label">AI</div></div>
     </div>
 
-
-    <!-- 🕹️ Game Section -->
     <div id="game">
       <button class="back-btn image-btn" onclick="restartGame()" style="background: none; border: none; padding: 0; position: absolute; top: 20px; left: 20px; z-index: 6;">
         <img src="/static/back-btn.png" alt="Balik" style="width: 100px; height: auto;" />
@@ -686,24 +657,20 @@
   </div>
 </div>
   
-    <!-- 🏁 Final Result Screen -->
     <div id="final">
       <div class="final-center">
         <p class="score-you">You: <span id="finalYou">0</span></p>
         <p class="score-ai">AI: <span id="finalAI">0</span></p>
         <p id="finalWinner" class="score-result">Natalo Ka!</p>
   
-        <!-- 🖼️ Result Image -->
         <img id="resultPic" src="" alt="Result" />
   
-        <!-- 🔁 Play Again Button -->
         <button class="score-btn image-btn" onclick="restartGame()" style="background: none; border: none; padding: 0; margin-top: 30px; cursor: pointer;">
           <img src="/static/again-btn.png" alt="Maglaro Muli" style="width: 220px; height: auto; display: block;" />
         </button>
       </div>
     </div>
   
-    <!-- 😊 Final Emoji (if needed) -->
     <div id="finalEmoji"></div>
   
   </body>
@@ -797,6 +764,10 @@ function toggleMusic() {
   })
   .then(r => r.json())
   .then(res => {
+    if (res.error) {
+      alert(res.error);  
+      return;
+    }
     const us = res.user_rhyme ? 10 : 0;
     const ai = res.ai_rhyme ? 10 : 0;
 
@@ -805,7 +776,6 @@ function toggleMusic() {
     updateScore('scoreUser', scoreUser);
     updateScore('scoreAI', scoreAI);
 
-    // Win animation for player
     if (us > ai) {
       document.getElementById('winGif').style.display = 'block';
       confetti({ particleCount: 100, spread: 70 });
@@ -814,18 +784,15 @@ function toggleMusic() {
       }, 2000);
     }
 
-    // Show round result
     document.getElementById('results').innerHTML = `
       <p><strong>You:</strong> ${userWord} ${res.user_rhyme ? '✔' : '✘'} (+${us})</p>
       <p><strong>AI:</strong> ${res.ai_word} ${res.ai_rhyme ? '✔' : '✘'} (+${ai})</p>
     `;
 
-    // 🔔 Show round popup (no scoreboard used)
     const winner = us > ai ? 'YOU' : ai > us ? 'AI' : 'TIE';
     document.getElementById('roundPopupText').innerText = `🏆 Panalo sa Round: ${winner}`;
     showRoundPopup();
 
-    // Go to next round or end
     setTimeout(() => {
       if (round < maxRounds) {
         round++;
@@ -856,7 +823,6 @@ function showRoundPopup() {
   document.getElementById('game').style.display = 'none';
   document.getElementById('final').style.display = 'flex';
 
-  // 🔇 Stop main background music
   const bgMusic = document.getElementById('bgMusic');
   bgMusic.pause();
   bgMusic.currentTime = 0;
@@ -874,14 +840,11 @@ function showRoundPopup() {
     popupImage.src = "/static/win-aldenpose.png";
     document.getElementById('userWinBgm').play();
 
-    // OPTIONAL: play your user win BGM if you have one
-    // document.getElementById('userWinBgm').play();
-
   } else if (scoreUser < scoreAI) {
     fw.className = "score-result lose";
     fw.innerText = "Natalo Ka!";
     popupImage.src = "/static/lose-krisbernal.png";
-    document.getElementById('aiWinBgm').play(); // 🔊 Play AI win BGM
+    document.getElementById('aiWinBgm').play(); 
 
   } else {
     fw.className = "score-result tie";
@@ -915,5 +878,3 @@ function showRoundPopup() {
   </script>
 </body>
 </html>
-index.html
-24 KB
