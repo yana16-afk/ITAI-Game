@@ -1,0 +1,300 @@
+1	Kung ano ang itinanim, siya ring aanihin.
+2	Walang ligaya sa madaling makuha.
+3	Ang taong masipag, sa dulo ay tiyak.
+4	Walang himala sa taong tamad ang gawa.
+5	Ang taong mapagkumbaba, laging pinagpala.
+6	Maraming salita, kulang sa gawa.
+7	Tahimik ang may alam, maingay ang walang laman.
+8	Kung may tiyaga, may nilaga.
+9	Ang di marunong lumingon, sa pinanggalingan ay malilimutan.
+10	Kapag may isinuksok, may madudukot.
+11	Ang pusong marupok, madalas mabiyak.
+12	Pag-ibig na totoo, hindi magbabago.
+13	Sa pusong payapa, tunay ang ligaya.
+14	Pag-ibig na biglaan, madalas ay iwanan.
+15	Ang tunay na mahal, di nagmamalaking asal.
+16	Kapag puso ang ginamit, sakit ang kapalit.
+17	Walang lihim sa pusong tapat at malalim.
+18	Ang nagmamahal ng totoo, kahit masaktan ay buo.
+19	Pag-ibig na pilit, laging may sakit.
+20	Pusong nagmamahal, laging nag-aalab at mahal.
+21	Kung ano ang itinanim, siya ring aanihin.
+22	Walang ligaya sa madaling makuha.
+23	Ang taong masipag, sa dulo ay tiyak.
+24	Walang himala sa taong tamad ang gawa.
+25	Ang taong mapagkumbaba, laging pinagpala.
+26	Maraming salita, kulang sa gawa.
+27	Tahimik ang may alam, maingay ang walang laman.
+28	Kung may tiyaga, may nilaga.
+29	Ang di marunong lumingon, sa pinanggalingan ay malilimutan.
+30	Kapag may isinuksok, may madudukot.
+31	Ang pusong marupok, madalas mabiyak.
+32	Pag-ibig na totoo, hindi magbabago.
+33	Sa pusong payapa, tunay ang ligaya.
+34	Pag-ibig na biglaan, madalas ay iwanan.
+35	Ang tunay na mahal, di nagmamalaki’t asal.
+36	Kapag puso ang ginamit, sakit ang kapalit.
+37	Walang lihim sa pusong tapat at malalim.
+38	Ang nagmamahal ng totoo, kahit masaktan ay buo.
+39	Pag-ibig na pilit, laging may sakit.
+40	Pusong nagmamahal, laging nag-aalab at mahal.
+41	Kung ano ang itinanim, siya ring aanihin.
+42	Walang ligaya sa madaling makuha.
+43	Ang taong masipag, sa dulo ay tiyak.
+44	Walang himala sa taong tamad ang gawa.
+45	Ang taong mapagkumbaba, laging pinagpala.
+46	Maraming salita, kulang sa gawa.
+47	Tahimik ang may alam, maingay ang walang laman.
+48	Kung may tiyaga, may nilaga.
+49	Ang di marunong lumingon, sa pinanggalingan ay malilimutan.
+50	Kapag may isinuksok, may madudukot.
+51	Ang pusong marupok, madalas mabiyak.
+52	Pag-ibig na totoo, hindi magbabago.
+53	Sa pusong payapa, tunay ang ligaya.
+54	Pag-ibig na biglaan, madalas ay iwanan.
+55	Ang tunay na mahal, di nagmamalaki’t asal.
+56	Kapag puso ang ginamit, sakit ang kapalit.
+57	Walang lihim sa pusong tapat at malalim.
+58	Ang nagmamahal ng totoo, kahit masaktan ay buo.
+59	Pag-ibig na pilit, laging may sakit.
+60	Pusong nagmamahal, laging nag-aalab at mahal.
+61	Kung ano ang itinanim, siya ring aanihin.
+62	Walang ligaya sa madaling makuha.
+63	Ang taong masipag, sa dulo ay tiyak.
+64	Walang himala sa taong tamad ang gawa.
+65	Ang taong mapagkumbaba, laging pinagpala.
+66	Maraming salita, kulang sa gawa.
+67	Tahimik ang may alam, maingay ang walang laman.
+68	Kung may tiyaga, may nilaga.
+69	Ang di marunong lumingon, sa pinanggalingan ay malilimutan.
+70	Kapag may isinuksok, may madudukot.
+71	Ang pusong marupok, madalas mabiyak.
+72	Pag-ibig na totoo, hindi magbabago.
+73	Sa pusong payapa, tunay ang ligaya.
+74	Pag-ibig na biglaan, madalas ay iwanan.
+75	Ang tunay na mahal, di nagmamalaki’t asal.
+76	Kapag puso ang ginamit, sakit ang kapalit.
+77	Walang lihim sa pusong tapat at malalim.
+78	Ang nagmamahal ng totoo, kahit masaktan ay buo.
+79	Pag-ibig na pilit, laging may sakit.
+80	Pusong nagmamahal, laging nag-aalab at mahal.
+81	Kung ano ang itinanim, siya ring aanihin.
+82	Walang ligaya sa madaling makuha.
+83	Ang taong masipag, sa dulo ay tiyak.
+84	Walang himala sa taong tamad ang gawa.
+85	Ang taong mapagkumbaba, laging pinagpala.
+86	Maraming salita, kulang sa gawa.
+87	Tahimik ang may alam, maingay ang walang laman.
+88	Kung may tiyaga, may nilaga.
+89	Ang di marunong lumingon, sa pinanggalingan ay malilimutan.
+90	Kapag may isinuksok, may madudukot.
+91	Ang pusong marupok, madalas mabiyak.
+92	Pag-ibig na totoo, hindi magbabago.
+93	Sa pusong payapa, tunay ang ligaya.
+94	Pag-ibig na biglaan, madalas ay iwanan.
+95	Ang tunay na mahal, di nagmamalaki’t asal.
+96	Kapag puso ang ginamit, sakit ang kapalit.
+97	Walang lihim sa pusong tapat at malalim.
+98	Ang nagmamahal ng totoo, kahit masaktan ay buo.
+99	Pag-ibig na pilit, laging may sakit.
+100	Pusong nagmamahal, laging nag-aalab at mahal.
+101	Kung ano ang itinanim, siya ring aanihin.
+102	Walang ligaya sa madaling makuha.
+103	Ang taong masipag, sa dulo ay tiyak.
+104	Walang himala sa taong tamad ang gawa.
+105	Ang taong mapagkumbaba, laging pinagpala.
+106	Maraming salita, kulang sa gawa.
+107	Tahimik ang may alam, maingay ang walang laman.
+108	Kung may tiyaga, may nilaga.
+109	Ang di marunong lumingon, sa pinanggalingan ay malilimutan.
+110	Kapag may isinuksok, may madudukot.
+111	Ang pusong marupok, madalas mabiyak.
+112	Pag-ibig na totoo, hindi magbabago.
+113	Sa pusong payapa, tunay ang ligaya.
+114	Pag-ibig na biglaan, madalas ay iwanan.
+115	Ang tunay na mahal, di nagmamalaki’t asal.
+116	Kapag puso ang ginamit, sakit ang kapalit.
+117	Walang lihim sa pusong tapat at malalim.
+118	Ang nagmamahal ng totoo, kahit masaktan ay buo.
+119	Pag-ibig na pilit, laging may sakit.
+120	Pusong nagmamahal, laging nag-aalab at mahal.
+121	Kung ano ang itinanim, siya ring aanihin.
+122	Walang ligaya sa madaling makuha.
+123	Ang taong masipag, sa dulo ay tiyak.
+124	Walang himala sa taong tamad ang gawa.
+125	Ang taong mapagkumbaba, laging pinagpala.
+126	Maraming salita, kulang sa gawa.
+127	Tahimik ang may alam, maingay ang walang laman.
+128	Kung may tiyaga, may nilaga.
+129	Ang di marunong lumingon, sa pinanggalingan ay malilimutan.
+130	Kapag may isinuksok, may madudukot.
+131	Ang pusong marupok, madalas mabiyak.
+132	Pag-ibig na totoo, hindi magbabago.
+133	Sa pusong payapa, tunay ang ligaya.
+134	Pag-ibig na biglaan, madalas ay iwanan.
+135	Ang tunay na mahal, di nagmamalaki’t asal.
+136	Kapag puso ang ginamit, sakit ang kapalit.
+137	Walang lihim sa pusong tapat at malalim.
+138	Ang nagmamahal ng totoo, kahit masaktan ay buo.
+139	Pag-ibig na pilit, laging may sakit.
+140	Pusong nagmamahal, laging nag-aalab at mahal.
+141	Kung ano ang itinanim, siya ring aanihin.
+142	Walang ligaya sa madaling makuha.
+143	Ang taong masipag, sa dulo ay tiyak.
+144	Walang himala sa taong tamad ang gawa.
+145	Ang taong mapagkumbaba, laging pinagpala.
+146	Maraming salita, kulang sa gawa.
+147	Tahimik ang may alam, maingay ang walang laman.
+148	Kung may tiyaga, may nilaga.
+149	Ang di marunong lumingon, sa pinanggalingan ay malilimutan.
+150	Kapag may isinuksok, may madudukot.
+151	Ang pusong marupok, madalas mabiyak.
+152	Pag-ibig na totoo, hindi magbabago.
+153	Sa pusong payapa, tunay ang ligaya.
+154	Pag-ibig na biglaan, madalas ay iwanan.
+155	Ang tunay na mahal, di nagmamalaki’t asal.
+156	Kapag puso ang ginamit, sakit ang kapalit.
+157	Walang lihim sa pusong tapat at malalim.
+158	Ang nagmamahal ng totoo, kahit masaktan ay buo.
+159	Pag-ibig na pilit, laging may sakit.
+160	Pusong nagmamahal, laging nag-aalab at mahal.
+161	Kung ano ang itinanim, siya ring aanihin.
+162	Walang ligaya sa madaling makuha.
+163	Ang taong masipag, sa dulo ay tiyak.
+164	Walang himala sa taong tamad ang gawa.
+165	Ang taong mapagkumbaba, laging pinagpala.
+166	Maraming salita, kulang sa gawa.
+167	Tahimik ang may alam, maingay ang walang laman.
+168	Kung may tiyaga, may nilaga.
+169	Ang di marunong lumingon, sa pinanggalingan ay malilimutan.
+170	Kapag may isinuksok, may madudukot.
+171	Ang pusong marupok, madalas mabiyak.
+172	Pag-ibig na totoo, hindi magbabago.
+173	Sa pusong payapa, tunay ang ligaya.
+174	Pag-ibig na biglaan, madalas ay iwanan.
+175	Ang tunay na mahal, di nagmamalaki’t asal.
+176	Kapag puso ang ginamit, sakit ang kapalit.
+177	Walang lihim sa pusong tapat at malalim.
+178	Ang nagmamahal ng totoo, kahit masaktan ay buo.
+179	Pag-ibig na pilit, laging may sakit.
+180	Pusong nagmamahal, laging nag-aalab at mahal.
+181	Kung ano ang itinanim, siya ring aanihin.
+182	Walang ligaya sa madaling makuha.
+183	Ang taong masipag, sa dulo ay tiyak.
+184	Walang himala sa taong tamad ang gawa.
+185	Ang taong mapagkumbaba, laging pinagpala.
+186	Maraming salita, kulang sa gawa.
+187	Tahimik ang may alam, maingay ang walang laman.
+188	Kung may tiyaga, may nilaga.
+189	Ang di marunong lumingon, sa pinanggalingan ay malilimutan.
+190	Kapag may isinuksok, may madudukot.
+191	Ang pusong marupok, madalas mabiyak.
+192	Pag-ibig na totoo, hindi magbabago.
+193	Sa pusong payapa, tunay ang ligaya.
+194	Pag-ibig na biglaan, madalas ay iwanan.
+195	Ang tunay na mahal, di nagmamalaki’t asal.
+196	Kapag puso ang ginamit, sakit ang kapalit.
+197	Walang lihim sa pusong tapat at malalim.
+198	Ang nagmamahal ng totoo, kahit masaktan ay buo.
+199	Pag-ibig na pilit, laging may sakit.
+200	Pusong nagmamahal, laging nag-aalab at mahal.
+201	Kung ano ang itinanim, siya ring aanihin.
+202	Walang ligaya sa madaling makuha.
+203	Ang taong masipag, sa dulo ay tiyak.
+204	Walang himala sa taong tamad ang gawa.
+205	Ang taong mapagkumbaba, laging pinagpala.
+206	Maraming salita, kulang sa gawa.
+207	Tahimik ang may alam, maingay ang walang laman.
+208	Kung may tiyaga, may nilaga.
+209	Ang di marunong lumingon, sa pinanggalingan ay malilimutan.
+210	Kapag may isinuksok, may madudukot.
+211	Ang pusong marupok, madalas mabiyak.
+212	Pag-ibig na totoo, hindi magbabago.
+213	Sa pusong payapa, tunay ang ligaya.
+214	Pag-ibig na biglaan, madalas ay iwanan.
+215	Ang tunay na mahal, di nagmamalaki’t asal.
+216	Kapag puso ang ginamit, sakit ang kapalit.
+217	Walang lihim sa pusong tapat at malalim.
+218	Ang nagmamahal ng totoo, kahit masaktan ay buo.
+219	Pag-ibig na pilit, laging may sakit.
+220	Pusong nagmamahal, laging nag-aalab at mahal.
+221	Kung ano ang itinanim, siya ring aanihin.
+222	Walang ligaya sa madaling makuha.
+223	Ang taong masipag, sa dulo ay tiyak.
+224	Walang himala sa taong tamad ang gawa.
+225	Ang taong mapagkumbaba, laging pinagpala.
+226	Maraming salita, kulang sa gawa.
+227	Tahimik ang may alam, maingay ang walang laman.
+228	Kung may tiyaga, may nilaga.
+229	Ang di marunong lumingon, sa pinanggalingan ay malilimutan.
+230	Kapag may isinuksok, may madudukot.
+231	Ang pusong marupok, madalas mabiyak.
+232	Pag-ibig na totoo, hindi magbabago.
+233	Sa pusong payapa, tunay ang ligaya.
+234	Pag-ibig na biglaan, madalas ay iwanan.
+235	Ang tunay na mahal, di nagmamalaki’t asal.
+236	Kapag puso ang ginamit, sakit ang kapalit.
+237	Walang lihim sa pusong tapat at malalim.
+238	Ang nagmamahal ng totoo, kahit masaktan ay buo.
+239	Pag-ibig na pilit, laging may sakit.
+240	Pusong nagmamahal, laging nag-aalab at mahal.
+241	Kung ano ang itinanim, siya ring aanihin.
+242	Walang ligaya sa madaling makuha.
+243	Ang taong masipag, sa dulo ay tiyak.
+244	Walang himala sa taong tamad ang gawa.
+245	Ang taong mapagkumbaba, laging pinagpala.
+246	Maraming salita, kulang sa gawa.
+247	Tahimik ang may alam, maingay ang walang laman.
+248	Kung may tiyaga, may nilaga.
+249	Ang di marunong lumingon, sa pinanggalingan ay malilimutan.
+250	Kapag may isinuksok, may madudukot.
+251	Ang pusong marupok, madalas mabiyak.
+252	Pag-ibig na totoo, hindi magbabago.
+253	Sa pusong payapa, tunay ang ligaya.
+254	Pag-ibig na biglaan, madalas ay iwanan.
+255	Ang tunay na mahal, di nagmamalaki’t asal.
+256	Kapag puso ang ginamit, sakit ang kapalit.
+257	Walang lihim sa pusong tapat at malalim.
+258	Ang nagmamahal ng totoo, kahit masaktan ay buo.
+259	Pag-ibig na pilit, laging may sakit.
+260	Pusong nagmamahal, laging nag-aalab at mahal.
+261	Kung ano ang itinanim, siya ring aanihin.
+262	Walang ligaya sa madaling makuha.
+263	Ang taong masipag, sa dulo ay tiyak.
+264	Walang himala sa taong tamad ang gawa.
+265	Ang taong mapagkumbaba, laging pinagpala.
+266	Maraming salita, kulang sa gawa.
+267	Tahimik ang may alam, maingay ang walang laman.
+268	Kung may tiyaga, may nilaga.
+269	Ang di marunong lumingon, sa pinanggalingan ay malilimutan.
+270	Kapag may isinuksok, may madudukot.
+271	Ang pusong marupok, madalas mabiyak.
+272	Pag-ibig na totoo, hindi magbabago.
+273	Sa pusong payapa, tunay ang ligaya.
+274	Pag-ibig na biglaan, madalas ay iwanan.
+275	Ang tunay na mahal, di nagmamalaki’t asal.
+276	Kapag puso ang ginamit, sakit ang kapalit.
+277	Walang lihim sa pusong tapat at malalim.
+278	Ang nagmamahal ng totoo, kahit masaktan ay buo.
+279	Pag-ibig na pilit, laging may sakit.
+280	Pusong nagmamahal, laging nag-aalab at mahal.
+281	Kung ano ang itinanim, siya ring aanihin.
+282	Walang ligaya sa madaling makuha.
+283	Ang taong masipag, sa dulo ay tiyak.
+284	Walang himala sa taong tamad ang gawa.
+285	Ang taong mapagkumbaba, laging pinagpala.
+286	Maraming salita, kulang sa gawa.
+287	Tahimik ang may alam, maingay ang walang laman.
+288	Kung may tiyaga, may nilaga.
+289	Ang di marunong lumingon, sa pinanggalingan ay malilimutan.
+290	Kapag may isinuksok, may madudukot.
+291	Ang pusong marupok, madalas mabiyak.
+292	Pag-ibig na totoo, hindi magbabago.
+293	Sa pusong payapa, tunay ang ligaya.
+294	Pag-ibig na biglaan, madalas ay iwanan.
+295	Ang tunay na mahal, di nagmamalaki’t asal.
+296	Kapag puso ang ginamit, sakit ang kapalit.
+297	Walang lihim sa pusong tapat at malalim.
+298	Ang nagmamahal ng totoo, kahit masaktan ay buo.
+299	Pag-ibig na pilit, laging may sakit.
+300	Pusong nagmamahal, laging nag-aalab at mahal.
